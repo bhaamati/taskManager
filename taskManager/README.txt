@@ -1,5 +1,5 @@
 In order to run this app:
-    1. Use the requirements.txt file to set up a virtual environment. The provided virtualenv will likely not work.
+    1. Use the requirements.txt file to set up a virtual environment. 
     2. Go to the directory inside taskManager in which manage.py is a file. 
     3. Enter the following command: python manage.py runserver.
     5. Access the website on localhost:8000. Create an account and start organizing projects.
