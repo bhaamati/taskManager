@@ -1,0 +1,24 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+    <h2>Your Projects</h2>
+    <p>Your Completed Tasks!</p>
+    {% for proj in projects %}
+        {% if proj.author == user %}
+        <article class="media content-section">  
+            <div class="media-body">
+                <h3><a class="article-title" href="{% url 'proj-detail' proj.pk %}">{{ proj.projectTitle }}</a></h3>
+                    {% for task in proj.project_set.all %}
+                        {% if task.completion %}
+                            <article class="media content-section color-yellow">
+                                <div class="media-body">
+                                <h3><a class="article-title" href="{% url 'task-detail' task.pk %}">{{ task.taskTitle }}</a></h3>
+                                <p class="article-content">{{ task.taskDescription }}</p>
+                                </div>
+                            </article>
+                        {% endif %}    
+                    {% endfor %} 
+            </div>
+        </article>
+        {% endif %} 
+    {% endfor %}
+{% endblock content %}

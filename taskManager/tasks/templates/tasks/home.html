@@ -1,0 +1,44 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+
+  {% if user.is_authenticated %}
+    <header class="site-header">
+        <div class="cover-container">
+            <div class="cover-fluid">
+              <div class="col-xs-12">
+                <div class="cover panel panel-default">
+                  <h1 class="cover-heading">Welcome to Your Task Manager.</h1>
+                  <a class="btn loginButton btn-lg active btn-block" href="{% url 'profile' %}">Profile</a>
+                  <a class="btn registerButton btn-lg active btn-block" href="{% url 'taskPage' %}">Your Projects</a>
+                  <br>
+                </div>
+              </div>
+            </div>
+        </div>
+      </header>
+  {% else %}
+  <header class="site-header">
+      <div class="cover-container">
+          <div class="cover-fluid">
+            <div class="col-xs-12">
+              <div class="cover panel panel-default">
+                <h1 class="cover-heading">Task Manager</h1>
+                <p class="welcomeMessage">Get Organized! </p>
+                <a class="btn loginButton btn-lg active btn-block" href="{% url 'login' %}">Login</a>
+                <a class="btn registerButton btn-lg active btn-block" href="{% url 'register' %}">Register</a>
+                <br>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+  {% endif %}
+    <!-- {% for task in tasks %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h2><a class="article-title" href="#">{{ task.taskTitle }}</a></h2>
+            <p class="article-content">{{ task.taskDescription }}</p>
+          </div>
+        </article>
+    {% endfor %} -->
+{% endblock content %}

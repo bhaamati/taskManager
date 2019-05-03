@@ -1,0 +1,30 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{% url 'proj-detail' project.id %}">{{ project.projectTitle }}</a>
+    </div>
+    <br>
+        {% for task in project.project_set.all %}
+            {% if task.completion %}
+                <article class="media content-section color-yellow">
+                    <div class="media-body">
+                    <h3><a class="article-title"href="{% url 'task-detail' task.id %}">{{ task.taskTitle }}</a></h3>
+                    <p class="article-content">{{ task.taskDescription }}</p>
+                    </div>
+                </article>
+            {% else %}   
+            <article class="media content-section">
+                    <div class="media-body">
+                    <h3><a class="article-title" href="{% url 'task-detail' task.id %}" >{{ task.taskTitle }}</a></h3>
+                    <p class="article-content">{{ task.taskDescription }}</p>
+                    </div>
+                </article>
+            {% endif %}    
+        {% endfor %} 
+        <a class="btn btn-outline-info" href="{% url 'proj-update' project.pk %}">Update Project</a>
+        <a class="btn btn-outline-info" href="{% url 'newTask' %}">Add New Task</a>
+        <a class="btn btn-outline-info" href="{% url 'proj-delete' project.pk %}">Delete Project</a>
+    </article>
+{% endblock content %}

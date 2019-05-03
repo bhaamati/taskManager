@@ -1,0 +1,14 @@
+{% extends "tasks/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{% url 'task-detail' task.id %}">{{ task.taskTitle }}</a>
+        </div>
+        <br>
+        <p class="article-content">{{ task.taskDescription }}</p>
+        <a class="btn btn-outline-info" href="{% url 'task-update' task.pk %}">Update Task</a>
+        <a class="btn btn-outline-info" href="{% url 'task-delete' task.pk %}">Delete Task</a>
+    </article>
+    
+{% endblock content %}
