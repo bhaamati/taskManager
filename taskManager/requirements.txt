@@ -19,7 +19,7 @@ idna==2.8
 jmespath==0.9.4
 lxml==4.3.3
 numpy==1.16.2
-Pillow==6.0.0
+Pillow==8.1.1
 psycopg2==2.8.1
 pystan==2.19.0.0
 python-cas==1.4.0
